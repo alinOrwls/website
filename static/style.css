@@ -1,0 +1,67 @@
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+}
+
+body {
+    background-color: #FBFBEA;
+
+}
+
+.display-1{
+    text-align: center;
+}
+.display-2{
+    text-align: center;
+}
+
+.section-padding{
+    padding: 70px 0;
+    
+
+}
+
+.carousel-item{
+    height: 100vh;
+    min-height: 300px;
+}
+.carousel-caption {
+    bottom: 200px;
+    z-index: 2;
+}
+
+.carousel-caption h2{
+    font-size: 45px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+.carousel-caption p{
+    width: 60%;
+    margin:auto;
+    font-size: 18px;
+    line-height: 1.9;
+
+}
+.team  .container{
+    display: flex;
+    justify-content: center;
+
+}
+
+.team .card-body i{
+    font-size: 50px;
+}
+@media(max-width:767px) {
+
+.carousel-item{
+height: 70vh;
+}
+    
+     
+     .carousel-caption{
+        bottom: 50px; 
+     }
+     .carousel-caption h5 {
+        font-size: 17px;
+     }
+}

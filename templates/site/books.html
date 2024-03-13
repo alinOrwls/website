@@ -1,0 +1,31 @@
+{% include 'site/header.html' %}
+
+
+
+<h2>books</h2>
+
+<div class="container">
+    <div class="row">
+
+        {% for book in books.values() %}
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{{ book.get_name()}}</h4>
+                    <a
+                        name=""
+                        id="" class="btn btn-primary"
+                        href="{{ book.get_url()}}" 
+                        role="button" >Read review</a>
+                    
+                </div>
+            </div>
+            
+        </div>
+        {%  endfor %}
+    </div>
+</div>
+
+
+
+{% include 'site/footer.html' %}

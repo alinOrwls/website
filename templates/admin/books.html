@@ -1,0 +1,89 @@
+{% include 'admin/header.html' %}
+<br/>
+<div class="container">
+    <div class="row">
+        <div
+            class="col-md-5"
+        >
+        <div class="card">
+            <div class="card-header">Book information</div>
+            <div class="card-body">
+               <form action="{{url_for('admin_books_save') }}" method="POST"  >
+                <div class="mb-3">
+                    <label for="txtName" class="form-label"> Book's Name:</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="txtName"
+                        id="txtName"
+                        aria-describedby="helpId"
+                        placeholder="Write book's name" /> 
+                </div>
+              
+                <div class="mb-3">
+                    <label for="txtURL" class="form-label">Download URL:</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="txtURL"
+                        id="txtURL"
+                        aria-describedby="helpId"
+                        placeholder="Write the URL to download the file"
+                    />
+                    <small id="helpId" class="form-text text-muted">Help text</small>
+                </div>
+                
+                <button
+                    type="submit"
+                    class="btn btn-primary" > Add
+                </button>
+                 </form>
+             </div>
+            <div class="card-footer text-muted"></div>
+        </div>
+        </div>
+        
+        
+        <div class="col-md-7" >
+            <div class="table-responsive">
+                <table class="table table-primary" >
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">URL</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for book in books.values() %}
+                        <tr >
+                            <td >{{ book.get_name() }}</td>
+                            <td>{{ book.get_url()}}</td>
+                            <td>
+                                <form action="{{ url_for('admin_books_delete') }}" method="POST">
+                                    <input value="{{ book.get_hash() }}" type="hidden" name="hash" id="txtID">
+                                    <button type="submit" class="btn btn-danger" >
+                                        Delete
+                                    </button>
+                                    
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+ {% include 'admin/footer.html' %}
